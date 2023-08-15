@@ -108,7 +108,7 @@ public final class MobData {
             Materials.VOID_INGOT, Materials.INFINITE_INGOT, CHAMBER, CHAMBER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
             Materials.VOID_INGOT, Materials.INFINITE_INGOT, CHAMBER, CHAMBER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
             Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
-        }, CHAMBER_ENERGY, CHAMBER_INTERVAL).register(plugin);
+        }, CHAMBER_ENERGY, CHAMBER_INFINITY_INTERVAL).register(plugin);
 
         new MobDataInfuser(Groups.MOB_SIMULATION, INFUSER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, Materials.MACHINE_CIRCUIT,
@@ -247,8 +247,6 @@ public final class MobData {
                 new ItemStack(Material.REDSTONE_BLOCK, 64), new ItemStack(Material.GLASS, 64), new ItemStack(Material.SUGAR, 64),
                 new ItemStack(Material.GLOWSTONE, 64), EMPTY_DATA_CARD, new ItemStack(Material.GLOWSTONE, 64),
                 new ItemStack(Material.SUGAR, 64), new ItemStack(Material.GLASS, 64), new ItemStack(Material.REDSTONE_BLOCK, 64)
-        }).addDrop(Material.SUGAR, 1).addDrop(Material.REDSTONE, 1)
-                .addDrop(Material.GLASS_BOTTLE, 1).addDrop(Material.GLOWSTONE_DUST, 1).register(plugin);
+        }).addDrop(Material.SUGAR, 1).addDrop(Material.REDSTONE, 1).addDrop(Material.GLASS_BOTTLE, 1).addDrop(Material.GLOWSTONE_DUST, 1).register(plugin);
     }
-
 }
