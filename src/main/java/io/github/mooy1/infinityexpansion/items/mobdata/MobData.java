@@ -1,5 +1,8 @@
 package io.github.mooy1.infinityexpansion.items.mobdata;
 
+import io.github.mooy1.infinityexpansion.items.blocks.InfinityWorkbench;
+import io.github.mooy1.infinitylib.machines.MachineBlock;
+
 import lombok.experimental.UtilityClass;
 
 import org.bukkit.Material;
@@ -20,7 +23,9 @@ public final class MobData {
 
     private static final int CHAMBER_INTERVAL =
             InfinityExpansion.config().getInt("mob-simulation-options.ticks-per-output", 1, 1000);
-    private static final int CHAMBER_BUFFER = 15000;
+    private static final int CHAMBER_INFINITY_INTERVAL =
+        InfinityExpansion.config().getInt("mob-simulation-options.infinity-ticks-per-output", 1, 1000);
+    private static final int CHAMBER_BUFFER = 150000;
     private static final int CHAMBER_ENERGY = 150;
     private static final int INFUSER_ENERGY = 20000;
 
@@ -48,13 +53,29 @@ public final class MobData {
             MachineLore.energyPerSecond(CHAMBER_ENERGY)
     );
 
+    public static final SlimefunItemStack INFINITY_CHAMBER = new SlimefunItemStack(
+        "INFINITY_MOB_SIMULATION_CHAMBER",
+        Material.GILDED_BLACKSTONE,
+        "&8无尽生物模拟室",
+        "&7效率x10",
+        "&7使用生物芯片激活",
+        "",
+        MachineLore.energyBuffer(CHAMBER_BUFFER),
+        MachineLore.energyPerSecond(CHAMBER_ENERGY)
+    );
+
     public static final SlimefunItemStack COW = MobDataCard.create("Cow", MobDataTier.PASSIVE);
     public static final SlimefunItemStack SHEEP = MobDataCard.create("Sheep", MobDataTier.PASSIVE);
     public static final SlimefunItemStack CHICKEN = MobDataCard.create("Chicken", MobDataTier.PASSIVE);
     public static final SlimefunItemStack VILLAGER = MobDataCard.create("Villager", MobDataTier.NEUTRAL);
 
     public static final SlimefunItemStack BEE = MobDataCard.create("Bee", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack PIG = MobDataCard.create("Pig", MobDataTier.NEUTRAL);
     public static final SlimefunItemStack SLIME = MobDataCard.create("Slime", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack COD = MobDataCard.create("Cod", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack SALMON = MobDataCard.create("Salmon", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack TROPICAL_FISH = MobDataCard.create("tropical_fish", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack PUFFERFISH = MobDataCard.create("pufferfish", MobDataTier.NEUTRAL);
     public static final SlimefunItemStack MAGMA_CUBE = MobDataCard.create("Magma Cube", MobDataTier.NEUTRAL);
 
     public static final SlimefunItemStack WITCH = MobDataCard.create("Witch", MobDataTier.ADVANCED);
@@ -78,6 +99,15 @@ public final class MobData {
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_PLATE, Materials.MAGSTEEL_PLATE,
                 Materials.MACHINE_CIRCUIT, SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER, Materials.MACHINE_CIRCUIT,
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_PLATE, Materials.MAGSTEEL_PLATE,
+        }, CHAMBER_ENERGY, CHAMBER_INTERVAL).register(plugin);
+
+        new MobSimulationChamber(Groups.INFINITY_CHEAT, INFINITY_CHAMBER, InfinityWorkbench.TYPE, new ItemStack[] {
+            Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, CHAMBER, CHAMBER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, CHAMBER, CHAMBER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, CHAMBER, CHAMBER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
         }, CHAMBER_ENERGY, CHAMBER_INTERVAL).register(plugin);
 
         new MobDataInfuser(Groups.MOB_SIMULATION, INFUSER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
@@ -107,6 +137,31 @@ public final class MobData {
                 new ItemStack(Material.LIME_DYE, 16), EMPTY_DATA_CARD, new ItemStack(Material.LIME_DYE, 16),
                 new ItemStack(Material.SLIME_BLOCK, 16), new ItemStack(Material.LIME_DYE, 16), new ItemStack(Material.SLIME_BLOCK, 16)
         }).addDrop(Material.SLIME_BALL, 1).register(plugin);
+        new MobDataCard(PIG, MobDataTier.NEUTRAL, new ItemStack[] {
+            new ItemStack(Material.PORKCHOP, 16), new ItemStack(Material.COOKED_PORKCHOP, 16), new ItemStack(Material.PORKCHOP, 16),
+            new ItemStack(Material.COOKED_PORKCHOP, 16), EMPTY_DATA_CARD, new ItemStack(Material.COOKED_PORKCHOP, 16),
+            new ItemStack(Material.PORKCHOP, 16), new ItemStack(Material.COOKED_PORKCHOP, 16), new ItemStack(Material.PORKCHOP, 16)
+        }).addDrop(Material.PORKCHOP, 8,1).register(plugin);
+        new MobDataCard(COD, MobDataTier.NEUTRAL, new ItemStack[] {
+            new ItemStack(Material.COD, 32), new ItemStack(Material.COD, 32), new ItemStack(Material.COD, 32),
+            new ItemStack(Material.COD, 32), EMPTY_DATA_CARD, new ItemStack(Material.COD, 32),
+            new ItemStack(Material.COD, 32), new ItemStack(Material.COD, 32), new ItemStack(Material.COD, 32)
+        }).addDrop(Material.COD,16, 1).register(plugin);
+        new MobDataCard(SALMON, MobDataTier.NEUTRAL, new ItemStack[] {
+            new ItemStack(Material.SALMON, 32), new ItemStack(Material.SALMON, 32), new ItemStack(Material.SALMON, 32),
+            new ItemStack(Material.SALMON, 32), EMPTY_DATA_CARD, new ItemStack(Material.SALMON, 32),
+            new ItemStack(Material.SALMON, 32), new ItemStack(Material.SALMON, 32), new ItemStack(Material.SALMON, 32)
+        }).addDrop(Material.SALMON,16, 1).register(plugin);
+        new MobDataCard(TROPICAL_FISH, MobDataTier.NEUTRAL, new ItemStack[] {
+            new ItemStack(Material.TROPICAL_FISH, 32), new ItemStack(Material.TROPICAL_FISH, 32), new ItemStack(Material.TROPICAL_FISH, 32),
+            new ItemStack(Material.TROPICAL_FISH, 32), EMPTY_DATA_CARD, new ItemStack(Material.TROPICAL_FISH, 32),
+            new ItemStack(Material.TROPICAL_FISH, 32), new ItemStack(Material.TROPICAL_FISH, 32), new ItemStack(Material.TROPICAL_FISH, 32)
+        }).addDrop(Material.TROPICAL_FISH,16, 1).register(plugin);
+        new MobDataCard(PUFFERFISH, MobDataTier.NEUTRAL, new ItemStack[] {
+            new ItemStack(Material.PUFFERFISH, 32), new ItemStack(Material.PUFFERFISH, 32), new ItemStack(Material.PUFFERFISH, 32),
+            new ItemStack(Material.PUFFERFISH, 32), EMPTY_DATA_CARD, new ItemStack(Material.PUFFERFISH, 32),
+            new ItemStack(Material.PUFFERFISH, 32), new ItemStack(Material.PUFFERFISH, 32), new ItemStack(Material.PUFFERFISH, 32)
+        }).addDrop(Material.PUFFERFISH,16, 1).register(plugin);
         new MobDataCard(MAGMA_CUBE, MobDataTier.NEUTRAL, new ItemStack[] {
                 new ItemStack(Material.MAGMA_BLOCK, 64), new ItemStack(Material.MAGMA_CREAM, 16), new ItemStack(Material.MAGMA_BLOCK, 64),
                 new ItemStack(Material.SLIME_BLOCK, 16), EMPTY_DATA_CARD, new ItemStack(Material.SLIME_BLOCK, 16),

@@ -254,11 +254,12 @@ public final class StoneworksFactory extends AbstractMachineBlock implements Rec
                 "&f圆石 &8=> &f安山岩",
                 "&f安山岩 &8=> &f闪长岩",
                 "&f闪长岩 &8=> &f花岗岩",
+                "&f沙子 &8=> &f可疑的沙子",
                 "",
                 "&7 > 点击切换"
             ),
-            new Material[] { Material.COBBLESTONE, Material.ANDESITE, Material.DIORITE},
-            new Material[] { Material.ANDESITE, Material.DIORITE, Material.GRANITE}
+            new Material[] { Material.COBBLESTONE, Material.ANDESITE, Material.DIORITE, Material.SAND},
+            new Material[] { Material.ANDESITE, Material.DIORITE, Material.GRANITE, Material.SUSPICIOUS_SAND}
         );
 
         private final ItemStack item;

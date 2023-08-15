@@ -67,11 +67,16 @@ public final class Quarries {
     public static final double LAPIS_CHANCE = getOscillatorChance("lapis");
     public static final double EMERALD_CHANCE = getOscillatorChance("emerald");
     public static final double QUARTZ_CHANCE = getOscillatorChance("quartz");
+    public static final double GOLD_CHANCE = getOscillatorChance("gold");
+    public static final double NETHERITE_CHANCE = getOscillatorChance("netherite");
     public static final SlimefunItemStack DIAMOND_OSCILLATOR = Oscillator.create(Material.DIAMOND, DIAMOND_CHANCE);
     public static final SlimefunItemStack REDSTONE_OSCILLATOR = Oscillator.create(Material.REDSTONE, REDSTONE_CHANCE);
     public static final SlimefunItemStack LAPIS_OSCILLATOR = Oscillator.create(Material.LAPIS_LAZULI, LAPIS_CHANCE);
     public static final SlimefunItemStack QUARTZ_OSCILLATOR = Oscillator.create(Material.QUARTZ, QUARTZ_CHANCE);
     public static final SlimefunItemStack EMERALD_OSCILLATOR = Oscillator.create(Material.EMERALD, EMERALD_CHANCE);
+    public static final SlimefunItemStack GOLD_OSCILLATOR = Oscillator.create(Material.GOLD_INGOT, GOLD_CHANCE);
+    public static final SlimefunItemStack NETHERITE_OSCILLATOR = Oscillator.create(Material.NETHERITE_INGOT, NETHERITE_CHANCE);
+
 
     private static double getOscillatorChance(String type) {
         return InfinityExpansion.config().getDouble("quarry-options.oscillators." + type, 0, 1);
@@ -112,6 +117,12 @@ public final class Quarries {
             outputs.add(Material.LAPIS_LAZULI);
         }
 
+        if (section.getBoolean("gold")) {
+            new Oscillator(GOLD_OSCILLATOR, GOLD_CHANCE).register(plugin);
+
+            outputs.add(Material.GOLD_INGOT);
+        }
+
         if (section.getBoolean("emerald")) {
             new Oscillator(EMERALD_OSCILLATOR, EMERALD_CHANCE).register(plugin);
             outputs.add(Material.EMERALD);
@@ -135,6 +146,12 @@ public final class Quarries {
         }
 
         if (section.getBoolean("netherite")) {
+            outputs.add(Material.NETHERITE_INGOT);
+        }
+
+        if (section.getBoolean("netherite")) {
+            new Oscillator(NETHERITE_OSCILLATOR, NETHERITE_CHANCE).register(plugin);
+
             outputs.add(Material.NETHERITE_INGOT);
         }
 

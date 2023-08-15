@@ -64,7 +64,7 @@ public final class Machines {
             "&b无尽&a自动农场",
             "&7自动种植、收获和再种植作物",
             "",
-            MachineLore.speed(25),
+            MachineLore.speed(400),
             MachineLore.energyPerSecond(900)
     );
     public static final SlimefunItemStack BASIC_TREE = new SlimefunItemStack(
@@ -91,7 +91,7 @@ public final class Machines {
             "&b无尽&2自动植树机",
             "&7自动种植、收获和再种植树木",
             "",
-            MachineLore.speed(25),
+            MachineLore.speed(400),
             MachineLore.energyPerSecond(1800)
     );
     private static final int BEDROCK_ENERGY = 10_000;
@@ -106,6 +106,8 @@ public final class Machines {
     );
     private static final int GEO_QUARRY_INTERVAL = 400;
     private static final int GEO_QUARRY_ENERGY = 450;
+    private static final int GEO_INFINITY_QUARRY_INTERVAL = 5;
+    private static final int GEO_INFINITY_QUARRY_ENERGY = 45000;
     public static final SlimefunItemStack GEO_QUARRY = new SlimefunItemStack(
             "GEO_QUARRY",
             Material.QUARTZ_BRICKS,
@@ -115,6 +117,17 @@ public final class Machines {
             "&7不受剩余地理资源数量影响",
             "",
             MachineLore.energyPerSecond(GEO_QUARRY_ENERGY)
+    );
+    public static final SlimefunItemStack GEO_INFINITY_QUARRY = new SlimefunItemStack(
+        "GEO_INFINITY_QUARRY",
+        Material.QUARTZ_BRICKS,
+        "&f无尽地理资源矿机",
+        "&7效率80x",
+        "&7利用电力快速获取地理资源",
+        "&7无需地形扫描",
+        "&7不受剩余地理资源数量影响",
+        "",
+        MachineLore.energyPerSecond(GEO_INFINITY_QUARRY_ENERGY)
     );
     public static final SlimefunItemStack EXTREME_FREEZER = new SlimefunItemStack(
             "EXTREME_FREEZER",
@@ -259,7 +272,7 @@ public final class Machines {
             "&b无尽&8虚空收集者",
             "&7从虚无中收集&8虚空粒",
             "",
-            MachineLore.speed(64),
+            MachineLore.speed(1024),
             MachineLore.energyPerSecond(12000)
     );
     public static final SlimefunItemStack CONCRETE_MOLDING_MACHINE = new SlimefunItemStack(
@@ -278,14 +291,14 @@ public final class Machines {
                 Materials.MACHINE_PLATE, SlimefunItems.GEO_MINER, Materials.MACHINE_PLATE,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
         }, 1).energyPerTick(120).register(plugin);
-        new VoidHarvester(Groups.INFINITY_CHEAT, INFINITE_VOID_HARVESTER, InfinityWorkbench.TYPE, new ItemStack[] {
+        new InfinityVoidHarvester(Groups.INFINITY_CHEAT, INFINITE_VOID_HARVESTER, InfinityWorkbench.TYPE, new ItemStack[] {
                 Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE,
                 Materials.MAGNONIUM, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.MAGNONIUM,
                 Materials.MAGNONIUM, Materials.VOID_INGOT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Materials.VOID_INGOT, Materials.MAGNONIUM,
                 Materials.MAGNONIUM, Materials.VOID_INGOT, VOID_HARVESTER, VOID_HARVESTER, Materials.VOID_INGOT, Materials.MAGNONIUM,
                 Materials.MAGNONIUM, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.MAGNONIUM,
                 Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE
-        }, 64).energyPerTick(12000).register(plugin);
+        }, 1024).energyPerTick(9600).register(plugin);
         new StoneworksFactory(Groups.ADVANCED_MACHINES, STONEWORKS_FACTORY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MAGSTEEL_PLATE, BASIC_COBBLE, Materials.MAGSTEEL_PLATE,
                 SlimefunItems.ELECTRIC_FURNACE_3, Materials.MACHINE_CIRCUIT, SlimefunItems.ELECTRIC_ORE_GRINDER,
@@ -375,6 +388,22 @@ public final class Machines {
                 Materials.MAGNONIUM, BASIC_GROWER, Materials.MAGNONIUM,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
         }).recipes(crops).ticksPerOutput(60).energyPerTick(90).register(plugin);
+
+        EnumMap<Material, ItemStack[]> cropspro = new EnumMap<>(Material.class);
+        cropspro.put(Material.WHEAT_SEEDS, new ItemStack[] { new ItemStack(Material.WHEAT, 20) });
+        cropspro.put(Material.CARROT, new ItemStack[] { new ItemStack(Material.CARROT, 20) });
+        cropspro.put(Material.POTATO, new ItemStack[] { new ItemStack(Material.POTATO, 20) });
+        cropspro.put(Material.BEETROOT_SEEDS, new ItemStack[] { new ItemStack(Material.BEETROOT, 20) });
+        cropspro.put(Material.PUMPKIN_SEEDS, new ItemStack[] { new ItemStack(Material.PUMPKIN,10) });
+        cropspro.put(Material.MELON_SEEDS, new ItemStack[] { new ItemStack(Material.MELON,10) });
+        cropspro.put(Material.SUGAR_CANE, new ItemStack[] { new ItemStack(Material.SUGAR_CANE, 20) });
+        cropspro.put(Material.COCOA_BEANS, new ItemStack[] { new ItemStack(Material.COCOA_BEANS, 20) });
+        cropspro.put(Material.CACTUS, new ItemStack[] { new ItemStack(Material.CACTUS, 20) });
+        cropspro.put(Material.BAMBOO, new ItemStack[] { new ItemStack(Material.BAMBOO, 60) });
+        cropspro.put(Material.CHORUS_FLOWER, new ItemStack[] { new ItemStack(Material.CHORUS_FRUIT, 60) });
+        cropspro.put(Material.NETHER_WART, new ItemStack[] { new ItemStack(Material.NETHER_WART, 20) });
+
+
         new GrowingMachine(Groups.INFINITY_CHEAT, INFINITY_GROWER, InfinityWorkbench.TYPE, new ItemStack[] {
                 new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
                 new ItemStack(Material.GLASS), null, null, null, null, new ItemStack(Material.GLASS),
@@ -382,7 +411,7 @@ public final class Machines {
                 new ItemStack(Material.GLASS), new ItemStack(Material.GRASS_BLOCK), new ItemStack(Material.GRASS_BLOCK), new ItemStack(Material.GRASS_BLOCK), new ItemStack(Material.GRASS_BLOCK), new ItemStack(Material.GLASS),
                 Materials.MACHINE_PLATE, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, ADVANCED_GROWER, ADVANCED_GROWER, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, Materials.MACHINE_PLATE,
                 Materials.MACHINE_PLATE, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CORE, Materials.INFINITE_CORE, Materials.INFINITE_CIRCUIT, Materials.MACHINE_PLATE
-        }).recipes(crops).ticksPerOutput(12).energyPerTick(900).register(plugin);
+        }).recipes(cropspro).ticksPerOutput(2).energyPerTick(900).register(plugin);
 
         EnumMap<Material, ItemStack[]> trees = new EnumMap<>(Material.class);
 
@@ -421,6 +450,46 @@ public final class Machines {
                 Materials.MAGNONIUM, BASIC_TREE, Materials.MAGNONIUM,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
         }).recipes(trees).ticksPerOutput(120).energyPerTick(180).register(plugin);
+
+        EnumMap<Material, ItemStack[]> treespro = new EnumMap<>(Material.class);
+
+        treespro.put(Material.OAK_SAPLING, new ItemStack[] {
+            new ItemStack(Material.OAK_LEAVES, 64), new ItemStack(Material.OAK_LEAVES, 16), new ItemStack(Material.OAK_LOG, 60), new ItemStack(Material.STICK), new ItemStack(Material.APPLE,10)
+        });
+        treespro.put(Material.AZALEA, new ItemStack[] {
+            new ItemStack(Material.AZALEA_LEAVES, 64), new ItemStack(Material.AZALEA_LEAVES, 16), new ItemStack(Material.OAK_LOG, 60)
+        });
+        treespro.put(Material.FLOWERING_AZALEA, new ItemStack[] {
+            new ItemStack(Material.FLOWERING_AZALEA_LEAVES, 64), new ItemStack(Material.FLOWERING_AZALEA_LEAVES, 16), new ItemStack(Material.OAK_LOG, 60)
+        });
+        treespro.put(Material.SPRUCE_SAPLING, new ItemStack[] {
+            new ItemStack(Material.SPRUCE_LEAVES, 64), new ItemStack(Material.SPRUCE_LEAVES, 16), new ItemStack(Material.SPRUCE_LOG, 60), new ItemStack(Material.STICK, 20)
+        });
+        treespro.put(Material.DARK_OAK_SAPLING, new ItemStack[] {
+            new ItemStack(Material.DARK_OAK_LEAVES, 64), new ItemStack(Material.DARK_OAK_LEAVES, 16), new ItemStack(Material.DARK_OAK_LOG, 60), new ItemStack(Material.APPLE,10)
+        });
+        treespro.put(Material.BIRCH_SAPLING, new ItemStack[] {
+            new ItemStack(Material.BIRCH_LEAVES, 64), new ItemStack(Material.BIRCH_LEAVES, 16), new ItemStack(Material.BIRCH_LOG, 60)
+        });
+        treespro.put(Material.ACACIA_SAPLING, new ItemStack[] {
+            new ItemStack(Material.ACACIA_LEAVES, 64), new ItemStack(Material.ACACIA_LEAVES, 16), new ItemStack(Material.ACACIA_LOG, 60)
+        });
+        treespro.put(Material.JUNGLE_SAPLING, new ItemStack[] {
+            new ItemStack(Material.JUNGLE_LEAVES, 64), new ItemStack(Material.JUNGLE_LEAVES, 16), new ItemStack(Material.JUNGLE_LOG, 60), new ItemStack(Material.COCOA_BEANS,10)
+        });
+        treespro.put(Material.WARPED_FUNGUS, new ItemStack[] {
+            new ItemStack(Material.WARPED_HYPHAE, 64), new ItemStack(Material.WARPED_HYPHAE, 16), new ItemStack(Material.WARPED_STEM, 60), new ItemStack(Material.SHROOMLIGHT,10)
+        });
+        treespro.put(Material.CRIMSON_FUNGUS, new ItemStack[] {
+            new ItemStack(Material.CRIMSON_HYPHAE, 64), new ItemStack(Material.CRIMSON_HYPHAE, 16), new ItemStack(Material.CRIMSON_STEM, 60), new ItemStack(Material.WEEPING_VINES,10)
+        });
+        treespro.put(Material.CHERRY_SAPLING, new ItemStack[] {
+            new ItemStack(Material.CHERRY_LEAVES,64), new ItemStack(Material.CHERRY_LEAVES,16), new ItemStack(Material.CHERRY_LOG,60)
+        });
+        treespro.put(Material.MANGROVE_PROPAGULE, new ItemStack[] {
+            new ItemStack(Material.MANGROVE_LEAVES,64), new ItemStack(Material.MANGROVE_LEAVES,16), new ItemStack(Material.MANGROVE_LOG,60), new ItemStack(Material.MANGROVE_ROOTS,40), new ItemStack(Material.MUDDY_MANGROVE_ROOTS,20)
+        });
+
         new GrowingMachine(Groups.INFINITY_CHEAT, INFINITY_TREE, InfinityWorkbench.TYPE, new ItemStack[] {
                 new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
                 new ItemStack(Material.GLASS), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, new ItemStack(Material.GLASS),
@@ -428,7 +497,7 @@ public final class Machines {
                 new ItemStack(Material.GLASS), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, new ItemStack(Material.GLASS),
                 Materials.MACHINE_PLATE, new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), Materials.MACHINE_PLATE,
                 Materials.MACHINE_PLATE, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CORE, Materials.INFINITE_CORE, Materials.INFINITE_CIRCUIT, Materials.MACHINE_PLATE
-        }).recipes(trees).ticksPerOutput(24).energyPerTick(1800).register(plugin);
+        }).recipes(treespro).ticksPerOutput(4).energyPerTick(1800).register(plugin);
 
         new MachineBlock(Groups.ADVANCED_MACHINES, EXTREME_FREEZER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2,
@@ -501,15 +570,15 @@ public final class Machines {
                 SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
                 SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT,
-        }).addRecipe(new SlimefunItemStack(SlimefunItems.COPPER_INGOT, 4), new SlimefunItemStack(SlimefunItems.COPPER_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.ZINC_INGOT, 4), new SlimefunItemStack(SlimefunItems.ZINC_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.TIN_INGOT, 4), new SlimefunItemStack(SlimefunItems.TIN_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.ALUMINUM_INGOT, 4), new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.LEAD_INGOT, 4), new SlimefunItemStack(SlimefunItems.LEAD_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.SILVER_INGOT, 4), new SlimefunItemStack(SlimefunItems.SILVER_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.GOLD_24K, 1), new SlimefunItemStack(SlimefunItems.GOLD_DUST, 8))
-                .addRecipe(new ItemStack(Material.IRON_INGOT, 4), new SlimefunItemStack(SlimefunItems.IRON_DUST, 8))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.MAGNESIUM_INGOT, 4), new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 8))
+        }).addRecipe(new SlimefunItemStack(SlimefunItems.COPPER_INGOT, 8), new SlimefunItemStack(SlimefunItems.COPPER_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.ZINC_INGOT, 8), new SlimefunItemStack(SlimefunItems.ZINC_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.TIN_INGOT, 8), new SlimefunItemStack(SlimefunItems.TIN_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.ALUMINUM_INGOT, 8), new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.LEAD_INGOT, 8), new SlimefunItemStack(SlimefunItems.LEAD_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.SILVER_INGOT, 8), new SlimefunItemStack(SlimefunItems.SILVER_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.GOLD_24K, 4), new SlimefunItemStack(SlimefunItems.GOLD_DUST, 8))
+                .addRecipe(new ItemStack(Material.IRON_INGOT, 8), new SlimefunItemStack(SlimefunItems.IRON_DUST, 8))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.MAGNESIUM_INGOT, 8), new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 8))
                 .ticksPerOutput(1).energyPerTick(240).register(plugin);
 
         new MachineBlock(Groups.INFINITY_CHEAT, INFINITY_INGOT_FORMER, InfinityWorkbench.TYPE, new ItemStack[] {
@@ -519,15 +588,15 @@ public final class Machines {
                 Materials.VOID_INGOT, Materials.INFINITE_INGOT, INGOT_FORMER, INGOT_FORMER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, Materials.INFINITE_INGOT, INGOT_FORMER, INGOT_FORMER, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
-        }).addRecipe(new SlimefunItemStack(SlimefunItems.COPPER_INGOT, 32), new SlimefunItemStack(SlimefunItems.COPPER_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.ZINC_INGOT, 32), new SlimefunItemStack(SlimefunItems.ZINC_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.TIN_INGOT, 32), new SlimefunItemStack(SlimefunItems.TIN_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.ALUMINUM_INGOT, 32), new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.LEAD_INGOT, 32), new SlimefunItemStack(SlimefunItems.LEAD_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.SILVER_INGOT, 32), new SlimefunItemStack(SlimefunItems.SILVER_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.GOLD_24K, 10), new SlimefunItemStack(SlimefunItems.GOLD_DUST, 64))
-                .addRecipe(new ItemStack(Material.IRON_INGOT, 32), new SlimefunItemStack(SlimefunItems.IRON_DUST, 64))
-                .addRecipe(new SlimefunItemStack(SlimefunItems.MAGNESIUM_INGOT, 32), new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 64))
+        }).addRecipe(new SlimefunItemStack(SlimefunItems.COPPER_INGOT, 64), new SlimefunItemStack(SlimefunItems.COPPER_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.ZINC_INGOT, 64), new SlimefunItemStack(SlimefunItems.ZINC_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.TIN_INGOT, 64), new SlimefunItemStack(SlimefunItems.TIN_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.ALUMINUM_INGOT, 64), new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.LEAD_INGOT, 64), new SlimefunItemStack(SlimefunItems.LEAD_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.SILVER_INGOT, 64), new SlimefunItemStack(SlimefunItems.SILVER_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.GOLD_24K, 64), new SlimefunItemStack(SlimefunItems.GOLD_DUST, 64))
+                .addRecipe(new ItemStack(Material.IRON_INGOT, 64), new SlimefunItemStack(SlimefunItems.IRON_DUST, 64))
+                .addRecipe(new SlimefunItemStack(SlimefunItems.MAGNESIUM_INGOT, 64), new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 64))
                 .ticksPerOutput(1).energyPerTick(7200).register(plugin);
 
         new MachineBlock(Groups.ADVANCED_MACHINES, URANIUM_EXTRACTOR, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
@@ -572,6 +641,15 @@ public final class Machines {
                 Materials.VOID_INGOT, SlimefunExtension.ADVANCED_GEO_MINER, Materials.VOID_INGOT,
                 Materials.MACHINE_PLATE, Materials.VOID_INGOT, Materials.MACHINE_PLATE,
         }).ticksPerOutput(GEO_QUARRY_INTERVAL).energyPerTick(GEO_QUARRY_ENERGY).register(plugin);
+
+        new MachineBlock(Groups.INFINITY_CHEAT, GEO_INFINITY_QUARRY, InfinityWorkbench.TYPE, new ItemStack[] {
+            Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, GEO_QUARRY, GEO_QUARRY, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, GEO_QUARRY, GEO_QUARRY, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.INFINITE_INGOT, GEO_QUARRY, GEO_QUARRY, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
+        }).ticksPerOutput(GEO_INFINITY_QUARRY_INTERVAL).energyPerTick(GEO_INFINITY_QUARRY_ENERGY).register(plugin);
 
         new MachineBlock(Groups.ADVANCED_MACHINES, CONCRETE_MOLDING_MACHINE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             Materials.VOID_INGOT, Materials.VOID_DUST, Materials.VOID_INGOT,

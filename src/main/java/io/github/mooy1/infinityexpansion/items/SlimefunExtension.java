@@ -53,10 +53,10 @@ public final class SlimefunExtension {
     private static final int ADVANCED_DIS_SPEED = 5;
     private static final int ADVANCED_DIS_ENERGY = 180;
 
-    private static final int INFINITY_EN_SPEED = 75;
+    private static final int INFINITY_EN_SPEED = 750;
     private static final int INFINITY_EN_ENERGY = 12000;
 
-    private static final int INFINITY_DIS_SPEED = 90;
+    private static final int INFINITY_DIS_SPEED = 900;
     private static final int INFINITY_DIS_ENERGY = 12000;
 
     private static final int ADVANCED_CHARGER_SPEED = 30;
