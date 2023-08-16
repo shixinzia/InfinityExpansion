@@ -1,5 +1,5 @@
 # 启用自动更新
-auto-update: true
+auto-update: false
 
 balance-options:
 

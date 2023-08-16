@@ -2,7 +2,7 @@ name: InfinityExpansion
 author: Mooy1
 description: more slimefun content
 main: io.github.mooy1.infinityexpansion.InfinityExpansion
-website: https://github.com/Mooy1/InfinityExpansion
+website: https://github.com/shixinzia/InfinityExpansion
 depend:
   - Slimefun
   - GuizhanLibPlugin
