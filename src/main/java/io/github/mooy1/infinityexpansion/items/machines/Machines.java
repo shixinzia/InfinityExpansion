@@ -642,7 +642,7 @@ public final class Machines {
                 Materials.MACHINE_PLATE, Materials.VOID_INGOT, Materials.MACHINE_PLATE,
         }).ticksPerOutput(GEO_QUARRY_INTERVAL).energyPerTick(GEO_QUARRY_ENERGY).register(plugin);
 
-        new MachineBlock(Groups.INFINITY_CHEAT, GEO_INFINITY_QUARRY, InfinityWorkbench.TYPE, new ItemStack[] {
+        new GeoQuarry(Groups.INFINITY_CHEAT, GEO_INFINITY_QUARRY, InfinityWorkbench.TYPE, new ItemStack[] {
             Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
             Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
             Materials.VOID_INGOT, Materials.INFINITE_INGOT, GEO_QUARRY, GEO_QUARRY, Materials.INFINITE_INGOT, Materials.VOID_INGOT,
