@@ -89,6 +89,7 @@ public final class MobData {
     public static final SlimefunItemStack GUARDIAN = MobDataCard.create("Guardian", MobDataTier.HOSTILE);
     public static final SlimefunItemStack IRON_GOLEM = MobDataCard.create("Iron Golem", MobDataTier.ADVANCED);
     public static final SlimefunItemStack BLAZE = MobDataCard.create("Blaze", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack GHAST = MobDataCard.create("Ghast", MobDataTier.ADVANCED);
 
     public static final SlimefunItemStack WITHER = MobDataCard.create("Wither", MobDataTier.MINI_BOSS);
     public static final SlimefunItemStack ENDER_DRAGON = MobDataCard.create("Ender Dragon", MobDataTier.BOSS);
@@ -197,6 +198,11 @@ public final class MobData {
                 new ItemStack(Material.ENDER_PEARL, 16), EMPTY_DATA_CARD, new ItemStack(Material.ENDER_PEARL, 16),
                 new ItemStack(Material.ENDER_EYE, 16), new ItemStack(Material.OBSIDIAN, 64), new ItemStack(Material.ENDER_EYE, 16)
         }).addDrop(Material.ENDER_PEARL,4, 1).register(plugin);
+        new MobDataCard(GHAST, MobDataTier.ADVANCED, new ItemStack[] {
+            new ItemStack(Material.GHAST_TEAR, 16), new ItemStack(Material.GUNPOWDER, 64), new ItemStack(Material.GHAST_TEAR, 16),
+            new ItemStack(Material.GUNPOWDER, 16), EMPTY_DATA_CARD, new ItemStack(Material.GUNPOWDER, 16),
+            new ItemStack(Material.GHAST_TEAR, 16), new ItemStack(Material.GUNPOWDER, 64), new ItemStack(Material.GHAST_TEAR, 16)
+        }).addDrop(Material.GHAST_TEAR,4, 1).addDrop(Material.GUNPOWDER,2,2).register(plugin);
         new MobDataCard(CREEPER, MobDataTier.HOSTILE, new ItemStack[] {
                 new ItemStack(Material.TNT, 16), new ItemStack(Material.GREEN_DYE, 64), new ItemStack(Material.TNT, 16),
                 new ItemStack(Material.GUNPOWDER, 16), EMPTY_DATA_CARD, new ItemStack(Material.GUNPOWDER, 16),
