@@ -18,16 +18,16 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 @UtilityClass
 public final class Generators {
 
-    private static final int HYDRO_ENERGY = 5;
-    private static final int ADVANCED_HYDRO_ENERGY = 45;
-    private static final int GEO_ENERGY = 35;
-    private static final int ADVANCED_GEO_ENERGY = 210;
-    private static final int BASIC_SOLAR_ENERGY = 9;
-    private static final int ADVANCED_SOLAR_ENERGY = 150;
-    private static final int CELESTIAL_ENERGY = 750;
-    private static final int VOID_ENERGY = 3000;
-    private static final int INFINITY_ENERGY = 60_000;
-    private static final int INFINITY_REACTOR_ENERGY = 120_000;
+    private static final int HYDRO_ENERGY = 50;
+    private static final int ADVANCED_HYDRO_ENERGY = 450;
+    private static final int GEO_ENERGY = 350;
+    private static final int ADVANCED_GEO_ENERGY = 2100;
+    private static final int BASIC_SOLAR_ENERGY = 90;
+    private static final int ADVANCED_SOLAR_ENERGY = 1500;
+    private static final int CELESTIAL_ENERGY = 7500;
+    private static final int VOID_ENERGY = 300000;
+    private static final int INFINITY_ENERGY = 60_000000;
+    private static final int INFINITY_REACTOR_ENERGY = 120_00000;
 
     public static final SlimefunItemStack INFINITY_REACTOR = new SlimefunItemStack(
             "INFINITY_REACTOR",
@@ -35,7 +35,7 @@ public final class Generators {
             "&b无尽反应堆",
             "&7利用无尽锭和虚空锭组合发电",
             "",
-            MachineLore.energyBuffer(INFINITY_REACTOR_ENERGY * 1000),
+            MachineLore.energyBuffer(INFINITY_REACTOR_ENERGY * 100),
             MachineLore.energyPerSecond(INFINITY_REACTOR_ENERGY)
     );
     public static final SlimefunItemStack HYDRO = new SlimefunItemStack(
@@ -118,7 +118,7 @@ public final class Generators {
             "&b无尽发电机",
             "&7利用宇宙能量发电",
             "",
-            MachineLore.energyBuffer(INFINITY_ENERGY * 100),
+            MachineLore.energyBuffer(INFINITY_ENERGY * 10),
             MachineLore.energyPerSecond(INFINITY_ENERGY)
     );
 

@@ -33,7 +33,7 @@ public final class VoidHarvester extends AbstractMachineBlock implements RecipeD
     public static final RecipeType TYPE = new RecipeType(InfinityExpansion.createKey("void_harvester"), Machines.VOID_HARVESTER);
 
     private static final int[] OUTPUT_SLOTS = { 13 };
-    private static final int TIME = 1024;
+    private static final int TIME = 8192;
 
     private final int speed;
 

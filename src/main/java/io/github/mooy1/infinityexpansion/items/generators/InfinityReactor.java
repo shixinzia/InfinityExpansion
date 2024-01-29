@@ -37,8 +37,8 @@ import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 @ParametersAreNonnullByDefault
 public final class InfinityReactor extends MenuBlock implements EnergyNetProvider, RecipeDisplayItem {
 
-    private static final int INFINITY_INTERVAL = 196000;
-    private static final int VOID_INTERVAL = 32000;
+    private static final int INFINITY_INTERVAL = 1960000;
+    private static final int VOID_INTERVAL = 320000;
     private static final int[] INPUT_SLOTS = { 10, 16 };
     private static final int STATUS_SLOT = 13;
 

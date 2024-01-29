@@ -279,9 +279,9 @@ public final class Machines {
             "INFINITE_VOID_HARVESTER",
             Material.CRYING_OBSIDIAN,
             "&b无尽&8虚空收集者",
-            "&7从虚无中收集&8虚空粒",
+            "&7从虚无中收集&8虚空粉尘",
             "",
-            MachineLore.speed(1024),
+            MachineLore.speed(9378),
             MachineLore.energyPerSecond(12000)
     );
     public static final SlimefunItemStack CONCRETE_MOLDING_MACHINE = new SlimefunItemStack(

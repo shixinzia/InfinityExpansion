@@ -173,35 +173,70 @@ public final class Materials {
     );
 
 
+    public static final SlimefunItemStack COPPER_BLCOK = new SlimefunItemStack(
+        "COPPER_BLOCK",
+        Material.BRICKS,
+        "&6铜块"
+    );
     public static final SlimefunItemStack COPPER_SINGULARITY = new SlimefunItemStack(
             "COPPER_SINGULARITY",
             Material.BRICKS,
             "&6铜奇点"
+    );
+    public static final SlimefunItemStack ZINC_BLOCK = new SlimefunItemStack(
+        "ZINC_BLOCK",
+        Material.IRON_BLOCK,
+        "&7锌块"
     );
     public static final SlimefunItemStack ZINC_SINGULARITY = new SlimefunItemStack(
             "ZINC_SINGULARITY",
             Material.IRON_BLOCK,
             "&7锌奇点"
     );
+    public static final SlimefunItemStack TIN_BLOCK = new SlimefunItemStack(
+        "TIN_BLOCK",
+        Material.IRON_BLOCK,
+        "&7锡块"
+    );
     public static final SlimefunItemStack TIN_SINGULARITY = new SlimefunItemStack(
             "TIN_SINGULARITY",
             Material.IRON_BLOCK,
             "&7锡奇点"
+    );
+    public static final SlimefunItemStack ALUMINUM_BLOCK = new SlimefunItemStack(
+        "ALUMINUM_BLOCK",
+        Material.IRON_BLOCK,
+        "&7铝块"
     );
     public static final SlimefunItemStack ALUMINUM_SINGULARITY = new SlimefunItemStack(
             "ALUMINUM_SINGULARITY",
             Material.IRON_BLOCK,
             "&7铝奇点"
     );
+    public static final SlimefunItemStack SILVER_BLOCK = new SlimefunItemStack(
+        "SILVER_BLOCK",
+        Material.IRON_BLOCK,
+        "&7银块"
+    );
     public static final SlimefunItemStack SILVER_SINGULARITY = new SlimefunItemStack(
             "SILVER_SINGULARITY",
             Material.IRON_BLOCK,
             "&7银奇点"
     );
+    public static final SlimefunItemStack MAGNESIUM_BLOCK = new SlimefunItemStack(
+        "MAGNESIUM_BLOCK",
+        Material.NETHER_BRICKS,
+        "&5镁块"
+    );
     public static final SlimefunItemStack MAGNESIUM_SINGULARITY = new SlimefunItemStack(
             "MAGNESIUM_SINGULARITY",
             Material.NETHER_BRICKS,
             "&5镁奇点"
+    );
+    public static final SlimefunItemStack LEAD_BLOCK = new SlimefunItemStack(
+        "LEAD_BLOCK",
+        Material.IRON_BLOCK,
+        "&8铅块"
     );
     public static final SlimefunItemStack LEAD_SINGULARITY = new SlimefunItemStack(
             "LEAD_SINGULARITY",
@@ -252,6 +287,11 @@ public final class Materials {
             "QUARTZ_SINGULARITY",
             Material.QUARTZ_BLOCK,
             "&f石英奇点"
+    );
+    public static final SlimefunItemStack INFINITY_BLOCK = new SlimefunItemStack(
+        "INFINITY_BLOCK",
+        Material.SMOOTH_QUARTZ,
+        "&b无尽奇点"
     );
     public static final SlimefunItemStack INFINITY_SINGULARITY = new SlimefunItemStack(
             "INFINITY_SINGULARITY",
@@ -320,6 +360,41 @@ public final class Materials {
                 VOID_DUST, VOID_DUST, VOID_DUST,
                 VOID_DUST, VOID_DUST, VOID_DUST
         });
+        registerEnhanced(COPPER_BLCOK, new ItemStack[] {
+            SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT,
+            SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT,
+            SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_INGOT
+        });
+        registerEnhanced(ZINC_BLOCK, new ItemStack[] {
+            SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT,
+            SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT,
+            SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT, SlimefunItems.ZINC_INGOT
+        });
+        registerEnhanced(TIN_BLOCK, new ItemStack[] {
+            SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT,
+            SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT,
+            SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT, SlimefunItems.TIN_INGOT
+        });
+        registerEnhanced(ALUMINUM_BLOCK, new ItemStack[] {
+            SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT,
+            SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT,
+            SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT, SlimefunItems.ALUMINUM_INGOT
+        });
+        registerEnhanced(SILVER_BLOCK, new ItemStack[] {
+            SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT,
+            SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT,
+            SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT
+        });
+        registerEnhanced(MAGNESIUM_BLOCK, new ItemStack[] {
+            SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT,
+            SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT,
+            SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT, SlimefunItems.MAGNESIUM_INGOT
+        });
+        registerEnhanced(LEAD_BLOCK, new ItemStack[] {
+            SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT,
+            SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT,
+            SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT, SlimefunItems.LEAD_INGOT
+        });
         registerEnhanced(RANDOM_NETHER_TEMPLATE, new ItemStack[] {
             new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT),
             new ItemStack(Material.NETHERITE_INGOT), VOID_INGOT, new ItemStack(Material.NETHERITE_INGOT),
@@ -340,6 +415,11 @@ public final class Materials {
                 MAGSTEEL, MAGSTEEL, MAGSTEEL,
                 MAGSTEEL, SlimefunItems.HARDENED_METAL_INGOT, MAGSTEEL,
                 MAGSTEEL, MAGSTEEL, MAGSTEEL
+        });
+        registerEnhanced(INFINITY_BLOCK, new ItemStack[] {
+            INFINITE_INGOT, INFINITE_INGOT, INFINITE_INGOT,
+            INFINITE_INGOT, INFINITE_INGOT, INFINITE_INGOT,
+            INFINITE_INGOT, INFINITE_INGOT, INFINITE_INGOT
         });
         registerEnhanced(MACHINE_CIRCUIT, new ItemStack[] {
                 SlimefunItems.COPPER_INGOT, SlimefunItems.ELECTRO_MAGNET, SlimefunItems.COPPER_INGOT,
@@ -387,23 +467,23 @@ public final class Materials {
                 MACHINE_CORE, MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CORE,
                 MACHINE_PLATE, MACHINE_CORE, INFINITE_INGOT, INFINITE_INGOT, MACHINE_CORE, MACHINE_PLATE
         });
-        new Singularity(COPPER_SINGULARITY, SlimefunItems.COPPER_INGOT, 3000).register(plugin);
-        new Singularity(ZINC_SINGULARITY, SlimefunItems.ZINC_INGOT, 3000).register(plugin);
-        new Singularity(TIN_SINGULARITY, SlimefunItems.TIN_INGOT, 3000).register(plugin);
-        new Singularity(ALUMINUM_SINGULARITY, SlimefunItems.ALUMINUM_INGOT, 3000).register(plugin);
-        new Singularity(SILVER_SINGULARITY, SlimefunItems.SILVER_INGOT, 3000).register(plugin);
-        new Singularity(MAGNESIUM_SINGULARITY, SlimefunItems.MAGNESIUM_INGOT, 3000).register(plugin);
-        new Singularity(LEAD_SINGULARITY, SlimefunItems.LEAD_INGOT, 3000).register(plugin);
-        new Singularity(GOLD_SINGULARITY, Material.GOLD_INGOT, 2000).register(plugin);
-        new Singularity(IRON_SINGULARITY, Material.IRON_INGOT, 2000).register(plugin);
-        new Singularity(DIAMOND_SINGULARITY, Material.DIAMOND, 500).register(plugin);
-        new Singularity(EMERALD_SINGULARITY, Material.EMERALD, 500).register(plugin);
-        new Singularity(NETHERITE_SINGULARITY, Material.NETHERITE_INGOT, 200).register(plugin);
-        new Singularity(COAL_SINGULARITY, Material.COAL, 1500).register(plugin);
-        new Singularity(REDSTONE_SINGULARITY, Material.REDSTONE, 1500).register(plugin);
-        new Singularity(LAPIS_SINGULARITY, Material.LAPIS_LAZULI, 1500).register(plugin);
-        new Singularity(QUARTZ_SINGULARITY, Material.QUARTZ, 1500).register(plugin);
-        new Singularity(INFINITY_SINGULARITY, INFINITE_INGOT, 100).register(plugin);
+        new Singularity(COPPER_SINGULARITY, COPPER_BLCOK, 3000).register(plugin);
+        new Singularity(ZINC_SINGULARITY, ZINC_BLOCK, 3000).register(plugin);
+        new Singularity(TIN_SINGULARITY, TIN_BLOCK, 3000).register(plugin);
+        new Singularity(ALUMINUM_SINGULARITY, ALUMINUM_BLOCK, 3000).register(plugin);
+        new Singularity(SILVER_SINGULARITY, SILVER_BLOCK, 3000).register(plugin);
+        new Singularity(MAGNESIUM_SINGULARITY, MAGNESIUM_BLOCK, 3000).register(plugin);
+        new Singularity(LEAD_SINGULARITY, LEAD_BLOCK, 3000).register(plugin);
+        new Singularity(GOLD_SINGULARITY, Material.GOLD_BLOCK, 2000).register(plugin);
+        new Singularity(IRON_SINGULARITY, Material.IRON_BLOCK, 2000).register(plugin);
+        new Singularity(DIAMOND_SINGULARITY, Material.DIAMOND_BLOCK, 500).register(plugin);
+        new Singularity(EMERALD_SINGULARITY, Material.EMERALD_BLOCK, 500).register(plugin);
+        new Singularity(NETHERITE_SINGULARITY, Material.NETHERITE_BLOCK, 200).register(plugin);
+        new Singularity(COAL_SINGULARITY, Material.COAL_BLOCK, 1500).register(plugin);
+        new Singularity(REDSTONE_SINGULARITY, Material.REDSTONE_BLOCK, 1500).register(plugin);
+        new Singularity(LAPIS_SINGULARITY, Material.LAPIS_BLOCK, 1500).register(plugin);
+        new Singularity(QUARTZ_SINGULARITY, Material.QUARTZ_BLOCK, 1500).register(plugin);
+        new Singularity(INFINITY_SINGULARITY, INFINITE_INGOT, 80).register(plugin);
     }
 
     private static void registerEnhanced(SlimefunItemStack item, ItemStack[] recipe) {
