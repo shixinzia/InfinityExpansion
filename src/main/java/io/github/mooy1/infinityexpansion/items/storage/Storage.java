@@ -22,11 +22,11 @@ public final class Storage {
             "&7制造或升级存储单元"
     );
 
-    private static final int BASIC_AMOUNT = 6400;
-    private static final int ADVANCED_AMOUNT = 25600;
-    private static final int REINFORCED_AMOUNT = 102400;
-    private static final int VOID_AMOUNT = 409600;
-    private static final int INFINITY_AMOUNT = 1_600_000_000;
+    private static final int BASIC_AMOUNT = 64000;
+    private static final int ADVANCED_AMOUNT = 256000;
+    private static final int REINFORCED_AMOUNT = 1024000;
+    private static final int VOID_AMOUNT = 40960000;
+    private static final int INFINITY_AMOUNT = 2147483647;
 
     public static final SlimefunItemStack BASIC_STORAGE = new SlimefunItemStack(
             "BASIC_STORAGE",
