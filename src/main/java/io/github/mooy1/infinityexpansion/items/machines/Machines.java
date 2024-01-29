@@ -40,6 +40,15 @@ public final class Machines {
             "",
             MachineLore.energy(1_000_000) + "每次使用"
     );
+    public static final SlimefunItemStack RANDOM_MACHINE = new SlimefunItemStack(
+        "RANDOM_MACHINE",
+        Material.LODESTONE,
+        "&6随机机器",
+        "&7通过特定配方来随机产出物品",
+        "",
+        MachineLore.speed(1),
+        MachineLore.energy(1000)
+    );
     public static final SlimefunItemStack BASIC_GROWER = new SlimefunItemStack(
             "BASIC_VIRTUAL_FARM",
             Material.GRASS_BLOCK,
@@ -554,6 +563,32 @@ public final class Machines {
                 .addRecipe(sixtyFourDust, new ItemStack(Material.DIORITE, 64))
                 .addRecipe(sixtyFourDust, new ItemStack(Material.GRANITE, 64))
                 .ticksPerOutput(1).energyPerTick(7200).register(plugin);
+
+        RandomizedItemStack randomTemplate = new RandomizedItemStack(
+            new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.COAST_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.HOST_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE,1),
+            new ItemStack(Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE,1)
+        );
+        new MachineBlock(Groups.ADVANCED_MACHINES, RANDOM_MACHINE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+            Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, RESOURCE_SYNTHESIZER, Materials.VOID_INGOT,
+            Materials.VOID_INGOT, Materials.RANDOM_NETHER_TEMPLATE, Materials.VOID_INGOT
+        }).addRecipe(randomTemplate, new SlimefunItemStack(Materials.RANDOM_NETHER_TEMPLATE,8))
+            .ticksPerOutput(10).energyPerTick(1000).register(plugin);
 
         new MachineBlock(Groups.ADVANCED_MACHINES, COBBLE_PRESS, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_PLATE, Materials.COBBLE_3, Materials.MACHINE_PLATE,

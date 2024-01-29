@@ -29,6 +29,12 @@ public final class Materials {
             "&b无尽&6晶格",
             "&7机器组件"
     );
+    public static final SlimefunItemStack RANDOM_NETHER_TEMPLATE = new SlimefunItemStack(
+        "RANDOM_NETHER_TEMPLATE",
+        Material.NETHERITE_INGOT,
+        "&b随机模板",
+        "&7可以在随机机器中随机转换为某一种下届合金模板"
+    );
     public static final SlimefunItemStack INFINITE_CORE = new SlimefunItemStack(
             "INFINITE_MACHINE_CORE",
             Material.DIAMOND_BLOCK,
@@ -313,6 +319,11 @@ public final class Materials {
                 VOID_DUST, VOID_DUST, VOID_DUST,
                 VOID_DUST, VOID_DUST, VOID_DUST,
                 VOID_DUST, VOID_DUST, VOID_DUST
+        });
+        registerEnhanced(RANDOM_NETHER_TEMPLATE, new ItemStack[] {
+            new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT),
+            new ItemStack(Material.NETHERITE_INGOT), VOID_INGOT, new ItemStack(Material.NETHERITE_INGOT),
+            new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT), new ItemStack(Material.NETHERITE_INGOT)
         });
         registerSmeltery(INFINITE_INGOT, EARTH_SINGULARITY, MYTHRIL, FORTUNE_SINGULARITY, MAGIC_SINGULARITY, VOID_INGOT, METAL_SINGULARITY);
         registerSmeltery(FORTUNE_SINGULARITY, GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY, NETHERITE_SINGULARITY, ADAMANTITE);
