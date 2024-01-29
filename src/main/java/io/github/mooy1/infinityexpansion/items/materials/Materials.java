@@ -291,7 +291,7 @@ public final class Materials {
     public static final SlimefunItemStack INFINITY_BLOCK = new SlimefunItemStack(
         "INFINITY_BLOCK",
         Material.SMOOTH_QUARTZ,
-        "&b无尽奇点"
+        "&b无尽块"
     );
     public static final SlimefunItemStack INFINITY_SINGULARITY = new SlimefunItemStack(
             "INFINITY_SINGULARITY",
