@@ -25,6 +25,7 @@ import io.github.mooy1.infinityexpansion.items.machines.Machines;
 import io.github.mooy1.infinityexpansion.items.materials.Materials;
 import io.github.mooy1.infinityexpansion.items.mobdata.MobData;
 import io.github.mooy1.infinityexpansion.items.quarries.Quarries;
+import io.github.mooy1.infinityexpansion.items.quarries.AdvancedQuarries;
 import io.github.mooy1.infinityexpansion.items.storage.Storage;
 import io.github.mooy1.infinityexpansion.items.storage.StorageSaveFix;
 import io.github.mooy1.infinitylib.common.Scheduler;
@@ -80,6 +81,7 @@ public final class InfinityExpansion extends AbstractAddon {
         Materials.setup(this);
         Machines.setup(this);
         Quarries.setup(this);
+        AdvancedQuarries.setup(this);
         Gear.setup(this);
         Blocks.setup(this);
         Storage.setup(this);

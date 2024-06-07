@@ -39,7 +39,8 @@ import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel;
 
 @UtilityClass
-public final class SlimefunExtension {
+public final class
+SlimefunExtension {
 
     private static final int INFINITY_CAPACITY = 2000000000;
     private static final int VOID_CAPACITY = 16000000;

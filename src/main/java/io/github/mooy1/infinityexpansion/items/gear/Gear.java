@@ -214,7 +214,6 @@ public final class Gear {
                 null, null, Materials.INFINITE_INGOT, Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT,
                 null, null, Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null,
                 null, Materials.VOID_INGOT, null, null, null, null,
-                Materials.VOID_INGOT, null, null, null, null, null
         }).register(plugin);
         new InfinityTool(PICKAXE, new ItemStack[] {
                 null, Materials.VOID_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null,

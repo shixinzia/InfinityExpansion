@@ -44,24 +44,6 @@ public final class Quarries {
             MachineLore.speed(2),
             MachineLore.energyPerSecond(900)
     );
-    public static final SlimefunItemStack VOID_QUARRY = new SlimefunItemStack(
-            "VOID_QUARRY",
-            Material.CHISELED_NETHER_BRICKS,
-            "&8虚空矿机",
-            "&7自动挖主世界和下界矿物",
-            "",
-            MachineLore.speed(6),
-            MachineLore.energyPerSecond(3600)
-    );
-    public static final SlimefunItemStack INFINITY_QUARRY = new SlimefunItemStack(
-            "INFINITY_QUARRY",
-            Material.CHISELED_POLISHED_BLACKSTONE,
-            "&b无尽矿机",
-            "&7自动挖主世界和下界矿物",
-            "",
-            MachineLore.speed(64),
-            MachineLore.energyPerSecond(36000)
-    );
     public static final double DIAMOND_CHANCE = getOscillatorChance("diamond");
     public static final double REDSTONE_CHANCE = getOscillatorChance("redstone");
     public static final double LAPIS_CHANCE = getOscillatorChance("lapis");
@@ -166,28 +148,6 @@ public final class Quarries {
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
         }, 2, 4, outputs.toArray(new Material[0])).energyPerTick(900).register(plugin);
 
-        if (coal) {
-            outputs.add(Material.COAL);
-        }
-
-        new Quarry(Groups.ADVANCED_MACHINES, VOID_QUARRY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
-                Materials.VOID_INGOT, SlimefunExtension.VOID_CAPACITOR, Materials.VOID_INGOT,
-                new ItemStack(Material.NETHERITE_PICKAXE), ADVANCED_QUARRY, new ItemStack(Material.NETHERITE_PICKAXE),
-                Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
-        }, 6, 2, outputs.toArray(new Material[0])).energyPerTick(3600).register(plugin);
-
-        if (coal) {
-            outputs.add(Material.COAL);
-        }
-
-        new Quarry(Groups.INFINITY_CHEAT, INFINITY_QUARRY, InfinityWorkbench.TYPE, new ItemStack[] {
-                null, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, Materials.MACHINE_PLATE, null,
-                Materials.MACHINE_PLATE, Gear.PICKAXE, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Gear.PICKAXE, Materials.MACHINE_PLATE,
-                Materials.MACHINE_PLATE, VOID_QUARRY, Materials.INFINITE_CORE, Materials.INFINITE_CORE, VOID_QUARRY, Materials.MACHINE_PLATE,
-                Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT,
-                Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT,
-                Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT
-        }, 64, 1, outputs.toArray(new Material[0])).energyPerTick(36000).register(plugin);
     }
 
 }

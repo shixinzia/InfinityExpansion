@@ -10,6 +10,7 @@ import io.github.mooy1.infinityexpansion.items.machines.Machines;
 import io.github.mooy1.infinityexpansion.items.materials.Materials;
 import io.github.mooy1.infinityexpansion.items.mobdata.MobData;
 import io.github.mooy1.infinityexpansion.items.quarries.Quarries;
+import io.github.mooy1.infinityexpansion.items.quarries.AdvancedQuarries;
 import io.github.mooy1.infinityexpansion.items.storage.Storage;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
@@ -104,11 +105,11 @@ public final class Researches {
                 Generators.INFINITE_PANEL, Generators.INFINITY_REACTOR, Storage.INFINITY_STORAGE,
                 SlimefunExtension.INFINITY_CAPACITOR, SlimefunExtension.INFINITY_CHARGER,
                 SlimefunExtension.INFINITY_DISENCHANTER, SlimefunExtension.INFINITY_ENCHANTER,
-                Quarries.INFINITY_QUARRY, Machines.INFINITY_DUST_EXTRACTOR
+                AdvancedQuarries.INFINITY_QUARRY, Machines.INFINITY_DUST_EXTRACTOR
         );
         create(16, "void_upgrades", "虚空升级", 45,
                 Generators.VOID_PANEL, SlimefunExtension.VOID_CAPACITOR, Storage.VOID_STORAGE,
-                Machines.POWERED_BEDROCK, Quarries.VOID_QUARRY
+                Machines.POWERED_BEDROCK, AdvancedQuarries.VOID_QUARRY
         );
         create(17, "advanced_alloys", "无尽合金", 30,
                 Materials.TITANIUM, Materials.ADAMANTITE, Materials.MAGNONIUM, Materials.MYTHRIL
